@@ -4,18 +4,19 @@
   "private": true,
   "dependencies": {
     "@testing-library/dom": "^10.4.0",
-    "@testing-library/jest-dom": "^6.6.3",
-    "@testing-library/react": "^16.1.0",
-    "@testing-library/user-event": "^13.2.1",
     "react": "^19.2.3",
     "react-dom": "^19.2.3",
+    "react-router-dom": "^7.10.1",
     "react-scripts": "5.0.1",
+    "styled-components": "^6.1.19",
     "web-vitals": "^2.1.0"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "set CI=true && react-scripts test --verbose",
+    "test:watch": "react-scripts test",
+    "test:coverage": "set CI=true && react-scripts test --coverage --verbose",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -35,5 +36,18 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "jest": {
+    "testMatch": [
+      "**/Test/**/*.test.js",
+      "**/__tests__/**/*.js",
+      "**/?(*.)+(spec|test).[jt]s?(x)"
+    ]
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^6.9.1",
+    "@testing-library/react": "^16.3.2",
+    "@testing-library/user-event": "^14.6.1",
+    "cypress": "^15.9.0"
   }
 }
