@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
+import arrowBack from '../../assets/arrow_back.png'
 
 const MenuRoulantContainer = styled.div`
   width: 100%;
@@ -30,18 +31,18 @@ const MenuHeader = styled.div`
   }
 `;
 
-const Arrow = styled.span`
-  font-size: 32px;
-  font-weight: bold;
+const Arrow = styled.img`
+  width: 24px;
+  height: 24px;
   transform: ${props => props.$isOpen ? 'rotate(180deg)' : 'rotate(0deg)'};
   transition: transform 0.5s ease;
-  line-height: 1;
   position: absolute;
   right: ${props => props.$arrowPosition || '20px'};
-  color: white;
+  object-fit: contain;
 
   @media (max-width: 768px) {
-    font-size: 20px;
+    width: 16px;
+    height: 16px;
     right: ${props => props.$arrowPosition || '12px'};
   }
 `;
@@ -52,7 +53,7 @@ const MenuContent = styled.div`
   transition: max-height 0.35s ease, padding 0.35s ease;
   padding: ${props => props.$isOpen ? '20px' : '0 20px'};
   will-change: max-height, padding;
-  color: #FF6060;
+  color: #000000;
   font-size: 16px;
   line-height: 1.6;
 
@@ -73,7 +74,7 @@ function MenuRoulant({ title, content, arrowPosition }) {
     <MenuRoulantContainer>
       <MenuHeader onClick={toggleMenu}>
         <span>{title}</span>
-        <Arrow $isOpen={isOpen} $arrowPosition={arrowPosition}>^</Arrow>
+        <Arrow src={arrowBack} alt="" aria-hidden="true" $isOpen={isOpen} $arrowPosition={arrowPosition} />
       </MenuHeader>
       <MenuContent $isOpen={isOpen}>
         {Array.isArray(content) ? (

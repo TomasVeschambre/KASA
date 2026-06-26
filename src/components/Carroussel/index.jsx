@@ -71,6 +71,10 @@ const SliderCounter = styled.div`
     padding: 8px 16px;
     border-radius: 20px;
     z-index: 10;
+
+    @media (max-width: 768px) {
+        display: none;
+    }
 `;
 
 function Carroussel({ pictures }) {

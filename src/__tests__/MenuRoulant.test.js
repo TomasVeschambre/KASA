@@ -27,4 +27,3 @@ describe('MenuRoulant', () => {
     expect(content.parentElement).toHaveStyle({ maxHeight: '0' });
   });
 });
-

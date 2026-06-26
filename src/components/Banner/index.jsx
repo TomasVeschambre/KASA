@@ -56,22 +56,28 @@ const BannerTitle = styled.h1`
     
     @media (max-width: 768px) {
         font-size: 32px;
+        text-align: left;
+        width: 100%;
+        white-space: pre-line;
+        line-height: 1.1;
     }
 
     @media (max-width: 375px) {
         font-size: 24px;
-        text-align: left;
-        width: 100%;
     }
 `;
 
 function Banner({ picture, title = '' }) {
+    const formattedTitle = title.includes(', ')
+        ? title.replace(', ', ',\n')
+        : title
+
     return (
         <BannerWrapper>
             <BannerContainer>
                 <BannerImg src={picture} alt={title} />
                 <BannerOverlay />
-                <BannerTitle>{title}</BannerTitle>
+                <BannerTitle>{formattedTitle}</BannerTitle>
             </BannerContainer>
         </BannerWrapper>
     )

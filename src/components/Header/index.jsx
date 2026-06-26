@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import logo from '../../assets/logo_header.svg'
-import { Link } from 'react-router-dom'
+import { NavLink as RouterNavLink } from 'react-router-dom'
 
 const HeaderContainer = styled.header`
     display: flex;
@@ -42,6 +42,29 @@ const Nav = styled.nav`
     }
 `;
 
+const NavLink = styled(RouterNavLink)`
+    color: #000000;
+    text-decoration: none;
+
+    &:visited {
+        color: #000000;
+    }
+
+    &:hover {
+        color: #000000;
+    }
+
+    &:active {
+        color: #000000;
+    }
+
+    &.active {
+        text-decoration: underline;
+        text-underline-offset: 4px;
+        text-decoration-thickness: 2px;
+    }
+`;
+
 function Header () {
     return (
         <HeaderContainer>
@@ -49,8 +72,12 @@ function Header () {
                 <LogoImg src={logo} alt="Kasa" />
             </Logo>
             <Nav>
-                <Link to="/">Accueil</Link>
-                <Link to="/about">A propos</Link>
+                <NavLink to="/" end className={({ isActive }) => (isActive ? 'active' : '')}>
+                    Accueil
+                </NavLink>
+                <NavLink to="/about" className={({ isActive }) => (isActive ? 'active' : '')}>
+                    A propos
+                </NavLink>
             </Nav>
         </HeaderContainer>
     )

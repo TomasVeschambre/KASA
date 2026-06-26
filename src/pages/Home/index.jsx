@@ -26,6 +26,13 @@ const HomeContainer = styled.div`
   width: 100%;
   box-sizing: border-box;
 
+  @media (max-width: 768px) {
+    background: none;
+    margin: 0;
+    width: 100%;
+    padding: 40px 0;
+    
+  }
   @media (max-width: 375px) {
     padding: 20px;
     margin: 16px 20px;
